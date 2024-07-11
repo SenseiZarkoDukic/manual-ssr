@@ -1,6 +1,8 @@
+const { readFileSync } = require("fs");
 const { createServer } = require("http");
 const { parse } = require("url");
 
+readFileSync(`${__dirname}/index.html`, "utf8");
 const server = createServer((req, res) => {
   const pathName = parse(req.url, true).pathname;
 
