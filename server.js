@@ -70,8 +70,9 @@ const server = createServer((req, res) => {
 
   if (pathName === "/") {
     const renderedHtml = renderToString(<Home />);
+    const html = htmlTemplate.replace("%%%CONTENT%%%", renderedHtml);
     res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(renderedHtml);
+    res.end(html);
   } else if (pathName === "/test") {
     res.end("Test page");
   } else {
