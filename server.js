@@ -1,7 +1,8 @@
 const { readFileSync } = require("fs");
 const { createServer } = require("http");
 const { parse } = require("url");
-const { rendertoString, renderToString } = require("react-dom/server");
+const { renderToString } = require("react-dom/server");
+const React = require("react");
 
 const pizzas = [
   {
