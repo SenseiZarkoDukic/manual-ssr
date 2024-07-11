@@ -1,10 +1,16 @@
 const { createServer } = require("http");
-const { parse } = require("path");
+const { parse } = require("url");
 
 const server = createServer((req, res) => {
-  const pathname = parse(req.url, true).pathname;
+  const pathName = parse(req.url, true).pathname;
 
-  res.end(`Hello, world!`);
+  if (pathName === "/") {
+    res.end("Hello, world!");
+  } else if (pathName === "/test") {
+    res.end("Test page");
+  } else {
+    res.end("Not found");
+  }
 });
 
 server.listen(8000, () => console.log("Listening for requests on port 8000"));
